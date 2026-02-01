@@ -5,14 +5,38 @@
 <title>До нашей встречи</title>
 </head>
 
+<div class="hearts"></div>
+
+<style>
+.hearts::before,
+.hearts::after {
+content: "❤️ 💖 💕 💗 💘";
+position: fixed;
+top: -10%;
+left: 0;
+width: 100%;
+font-size: 24px;
+animation: fall 15s linear infinite;
+opacity: 0.5;
+}
+
+.hearts::after {
+animation-delay: 7s;
+}
+
+@keyframes fall {
+0% { transform: translateY(0); }
+100% { transform: translateY(120vh); }
+}
+</style>
+    
 <body style="
 margin:0;
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background-color:#ffe6ec;
-background-image:url('https://www.transparenttextures.com/patterns/hearts.png');
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
 font-family:Arial;
 ">
 
