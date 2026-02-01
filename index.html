@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>До нашей встречи</title>
+</head>
+
+<body style="
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+font-family:Arial;
+">
+
+<div style="
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+">
+
+<h2>Эмилька, до нашей встречи осталось</h2>
+<h1 id="timer" style="color:#e75480;">Загрузка...</h1>
+<p>Совсем скоро ты будешь дома</p>
+<p>Я рядом, даже если ты далеко❤️</p>
+
+
+</div>
+
+<script>
+var targetDate = new Date(2026, 1, 6, 10, 0, 0);
+
+function updateTimer() {
+    var now = new Date();
+    var diff = targetDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("timer").innerText = "Мы уже вместе ❤️";
+        return;
+    }
+
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000) / 60000);
+    var seconds = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById("timer").innerText =
+        days + " дн " + hours + " ч " + minutes + " мин " + seconds + " сек";
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
